@@ -1,0 +1,159 @@
+\def\filedate{2006/04/14}
+\def\fileversion{1.0}
+\ProvidesPackage{AMMALanguages}
+             [\filedate\space\fileversion\space(Davide Di Ruscio and Fr\'ed\'eric Jouault)]
+\typeout{}
+\typeout{----------------------}
+\typeout{AMMA Languages Formatting Package}
+\typeout{----------------------}
+\typeout{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+ 
+\usepackage{listings}
+\usepackage{ifthen}
+\usepackage{color}
+%\usepackage{xspace}
+%\usepackage{amsmath}
+
+\definecolor{gray}{rgb}{0.9,0.9,0.9}
+\definecolor{blue}{rgb}{0,0,0.5}
+%\lstloadlanguages{HTML,XML}
+\lstset{
+ % backgroundcolor=\color{gray},
+  breaklines=true,
+  frame=single,
+  framerule=0pt,
+  language=,
+  numbers=left,
+  numbersep=5pt,
+  showspaces=false,
+  showtabs=false,
+  tabsize=4,
+  basicstyle=\ttfamily\scriptsize,
+  %basicstyle=\scriptsize,
+  commentstyle=\ttfamily\itshape,
+  identifierstyle=\ttfamily\scriptsize,
+%\bfseries,
+  numberstyle=\ttfamily\tiny
+}
+
+
+
+\definecolor{keywordColor}{rgb}{.5, 0, .33}
+\definecolor{commentColor}{rgb}{0, .5, 0}
+\definecolor{emphColor}{rgb}{.16, 0, 1}
+\definecolor{numberColor}{rgb}{.09, .62, .28}
+  %[breaklines,mathescape,rulesepcolor=\color{black}]
+\lstdefinestyle{AMMA}{
+	basicstyle=\scriptsize,
+%	keywordstyle=\color{[rgb]{.5, 0, .33}}\bfseries,
+	keywordstyle=\color{keywordColor}\bfseries,
+	stringstyle=\color{blue}\ttfamily,
+%	commentstyle=\color{[rgb]{0, 0.5, 0}}\ttfamily,
+	commentstyle=\color{commentColor}\ttfamily,
+	emphstyle=\color{emphColor},
+%	numberstyle=\color{numberColor},
+	tabsize=2,
+	frame=,
+	breaklines=true,
+%	postbreak={(*@$\hookrightarrow$@*)},
+%	postbreak={(*@$\nearrow$@*)},
+%	postbreak=\mbox{{\color{red}\tiny$\rightarrow$}},
+	postbreak=\mbox{{\color{red}\tiny$\hookrightarrow$}},
+}
+\lstdefinelanguage{TCS}{
+	morekeywords={syntax,main,template,isDefined,addToContext,primitiveTemplate,for,default,using,context,function},
+	morekeywords={operators,priority,operatorTemplate,storeOpTo,storeRightTo},
+	morekeywords={symbols,leftSpace,rightSpace,leftNone,rightNone},
+	morekeywords={nbNL,indentIncr,nonPrimary},
+	morekeywords={as,refersTo,separator},
+	sensitive=true,
+	morecomment=[l]{--},
+	morestring=[b]",
+	showstringspaces=false,
+}
+
+\lstdefinelanguage{KM3}{
+	morekeywords={package,class,oppositeOf,container,ordered,abstract,extends,reference,attribute,enumeration,literal,datatype},
+	emph={Boolean,Integer,String},
+	sensitive=true,
+	morecomment=[l]{--},
+	morestring=[b]",
+}
+
+\lstdefinelanguage{ATL}{
+	morekeywords={rule,module,from,to,create,uses,using,embedded,refining},
+	morekeywords={context,def,let,in,if,then,else,endif},
+	morekeywords={lazy,unique,helper,extends},
+	morekeywords={and,or},
+	morekeywords={do},
+	morekeywords={droo},
+	emph={Boolean,Integer,String,Sequence},
+	sensitive=true,
+	morecomment=[l]{--},
+	morestring=[b]',
+	showstringspaces=false,
+}
+
+\lstdefinelanguage{ANTLR}{
+	morekeywords={},
+% we use emph for (some) terminals
+	emph={LCURLY,RCURLY,NAME},
+	sensitive=true,
+	morecomment=[l]{//},
+	morestring=[b]",
+}
+
+\lstdefinelanguage{EBNF}{
+	morekeywords={},
+% "TERMINALS"
+%	emph={identifier,booleanSymbol,integerSymbol,floatSymbol,stringSymbol},
+	emph={IDENTIFIER,BOOLEAN,INTEGER,FLOAT,STRING,EOF},
+	sensitive=true,
+	morecomment=[l]{--},
+	morestring=[b]',
+}
+
+\lstdefinelanguage{SPL}{
+	morekeywords={service,processing,registration,return,forward,incoming},
+	emph={uri,response},
+	sensitive=true,
+	morecomment=[l]{//},
+	morestring=[b]',
+}
+
+\lstdefinelanguage{ASM}{
+	morekeywords={asm,endasm,is,choose,in,do,forall,and,or,then,endchoose,enddo,if,endif,then,universes,universe,function, exists,not,extend,endextend,let,endlet,ifnone,with,elseif,else},
+	sensitive=true,
+	morecomment=[l]{//},
+	morestring=[b]',
+}
+
+% id, caption, complement
+\lstnewenvironment{km3}[3]{\lstset{language=KM3, style=AMMA, numbers=left, caption={#2 (KM3 listing)}, label=lst:km3#1}}{
+% \showFigure#1 does not work because #1 is expanded into {<contents>} (i.e., with brackets)
+%\ifthenelse{\equal{\showFigure#1}{false}}{}{
+\begin{figure}
+  \centerline{\includegraphics[scale=.5]{Temp/#1}}
+  \caption{#2 (auto-generated class diagram)}
+  \label{fig:km3#1}
+\end{figure}
+%}
+}
+
+\lstnewenvironment{simpleKM3}[2]{\lstset{language=KM3, style=AMMA, numbers=left, caption={#2 (KM3 listing)}, label=lst:km3#1}}{}
+\lstnewenvironment{simpleTCS}[2]{\lstset{language=TCS, style=AMMA, numbers=left, caption={#2 (TCS listing)}, label=lst:tcs#1}}{}
+\lstnewenvironment{simpleEBNF}[2]{\lstset{language=EBNF, style=AMMA, numbers=left, caption={#2 (EBNF listing)}, label=lst:ebnf#1}}{}
+
+% id, caption
+\lstnewenvironment{tcsOps}[2]{\lstset{language=TCS, style=AMMA, numbers=left, caption={#2 (TCS operators listing)}, label=lst:tcs#1}}{}
+
+% id, caption, opsid
+\lstnewenvironment{tcs}[3]{\lstset{language=TCS, style=AMMA, numbers=left, caption={#2 (TCS listing)}, label=lst:tcs#1}}{
+%\verbatiminput{Temp/#1.ebnf}
+\lstinputlisting[language=EBNF, style=AMMA, numbers=left, caption={#2 (generated grammar)}, label=lst:ebnf#1]{Temp/#1.ebnf}
+}
+
+\endinput
+

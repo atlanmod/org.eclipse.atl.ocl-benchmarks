@@ -1,0 +1,65 @@
+%%This is a very basic article template.
+%%There is just one section and two subsections.
+\documentclass{report}
+
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{color}
+\usepackage{listings, multicol}
+\usepackage{AMMALanguages}
+%\usepackage{inconsolata}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{multirow}
+\usepackage{etoolbox}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{times}
+\usepackage{changepage}
+\usepackage{framed}
+\usepackage{longtable}
+
+
+\begin{document}
+
+\title{Lazy OCL Performance Evaluation}
+
+\part{Intro}
+
+\chapter{Methodology}
+
+\input{overview.tex}
+
+\part{Performance Evaluation Results}
+
+We will present the evaluation results for each of the OCL operations separated
+by collection type.
+
+\chapter{Sequence}
+
+\input{sequence.tex}
+
+\chapter{Set}
+
+\input{set.tex}
+
+\chapter{Bag}
+
+\input{bag.tex}
+
+\chapter{OrderedSet}
+
+\input{orderedSet.tex}
+
+\chapter{Summary}
+
+\input{summary}
+
+\chapter{Table}
+
+\input{table}
+
+\end{document}
