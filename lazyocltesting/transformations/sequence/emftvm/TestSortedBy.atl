@@ -1,0 +1,5 @@
+-- @atlcompiler emftvm
+query TestSortedBy = (thisModule.squares(257)->sortedBy(e|e)->takeFromSeq(thisModule.numTakeIn));
+
+uses SequenceHelpers;
+

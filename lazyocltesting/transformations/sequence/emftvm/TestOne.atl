@@ -1,0 +1,4 @@
+-- @atlcompiler emftvm
+query TestOne = (thisModule.squares(257)->one(e|e+e.expensive() = thisModule.numTakeIn*thisModule.numTakeIn));
+
+uses SequenceHelpers;

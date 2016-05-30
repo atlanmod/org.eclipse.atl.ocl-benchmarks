@@ -1,0 +1,4 @@
+-- @atlcompiler emftvm
+query TestForAll = (thisModule.squares(257)->forAll(e| e > e.expensive()).debug());
+
+uses Helpers;

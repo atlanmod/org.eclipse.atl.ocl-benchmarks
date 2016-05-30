@@ -1,0 +1,5 @@
+-- @atlcompiler emftvm
+
+query TestExcluding = (thisModule.squares(258)->excluding(4.expensive())->takeFromSeq(thisModule.numTakeIn));
+
+uses Helpers;

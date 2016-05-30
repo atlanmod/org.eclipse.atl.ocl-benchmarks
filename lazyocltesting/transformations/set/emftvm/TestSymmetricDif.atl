@@ -1,0 +1,5 @@
+-- @atlcompiler emftvm
+query TestSymmetricDif = thisModule.take(thisModule.numTakeIn,(thisModule.squaresE(700))
+					->symmetricDifference(thisModule.Numbers(257)));
+
+uses Helpers;

@@ -1,0 +1,5 @@
+-- @atlcompiler emftvm
+query TestAppend = thisModule.take(thisModule.numTakeIn,thisModule.squaresE(257)
+					->append(0.expensive()));
+
+uses Helpers;

@@ -1,0 +1,4 @@
+-- @atlcompiler emftvm
+query TestMinus = (thisModule.squares(514)->subtract((thisModule.squares(257)))->takeFromSeq(thisModule.numTakeIn));
+
+uses Helpers;

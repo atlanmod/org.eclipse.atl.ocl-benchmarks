@@ -1,0 +1,6 @@
+-- @atlcompiler emftvm
+query TestUnion = thisModule.take(thisModule.numTakeIn,(thisModule.squares(500)->select(e | e > e.expensive()))
+					->union(thisModule.Numbers(257)->select(e | e > e.expensive())));
+
+uses Helpers;
+

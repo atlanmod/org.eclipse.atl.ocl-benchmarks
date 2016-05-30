@@ -1,0 +1,4 @@
+-- @atlcompiler emftvm
+query TestExcludesAll = (thisModule.squares(257)->includesAll(thisModule.squares(257)));
+
+uses SequenceHelpers;

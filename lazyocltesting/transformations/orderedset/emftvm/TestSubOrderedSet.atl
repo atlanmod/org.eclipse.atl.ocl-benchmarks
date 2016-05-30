@@ -1,0 +1,4 @@
+-- @atlcompiler emftvm
+query TestSubOrderedSet = (thisModule.squaresE(257)->subSequence(1,thisModule.numTakeIn)->takeFromSeq(thisModule.numTakeIn));
+
+uses Helpers;

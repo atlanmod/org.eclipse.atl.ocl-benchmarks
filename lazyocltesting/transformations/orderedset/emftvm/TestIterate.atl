@@ -1,0 +1,7 @@
+-- @atlcompiler emftvm
+query TestIterate = thisModule.squares(257)->iterate(
+		e; result:OrderedSet(Integer) = OrderedSet{}
+		| result->append(e+e.expensive())
+)->takeFromSeq(thisModule.numTakeIn);
+
+uses Helpers;

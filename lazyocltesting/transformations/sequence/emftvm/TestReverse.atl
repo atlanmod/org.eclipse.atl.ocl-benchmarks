@@ -1,0 +1,4 @@
+-- @atlcompiler emftvm
+query TestReverse = (thisModule.squares(257)->reverse()->takeFromSeq(thisModule.numTakeIn));
+
+uses SequenceHelpers;

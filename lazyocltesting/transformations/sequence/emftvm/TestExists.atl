@@ -1,0 +1,4 @@
+-- @atlcompiler emftvm
+query TestExists = (thisModule.squares(257)->exists(e|e+e.expensive() = thisModule.numTakeIn*thisModule.numTakeIn));
+
+uses SequenceHelpers;

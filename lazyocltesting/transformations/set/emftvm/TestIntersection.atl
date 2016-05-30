@@ -1,0 +1,4 @@
+-- @atlcompiler emftvm
+query TestIntersection = (thisModule.squaresE(600)->intersection(thisModule.Numbers(257))->takeFromSeq(thisModule.numTakeIn));
+
+uses Helpers;

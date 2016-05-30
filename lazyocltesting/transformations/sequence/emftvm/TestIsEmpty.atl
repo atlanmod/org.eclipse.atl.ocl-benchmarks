@@ -1,0 +1,4 @@
+-- @atlcompiler emftvm
+query TestIsEmpty = (thisModule.squares(257)->isEmpty());
+
+uses SequenceHelpers;

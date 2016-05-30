@@ -1,0 +1,38 @@
+
+query TestAllInstancesN = thisModule.take(thisModule.numTakeIn,Parameters!Number.allInstances());
+
+
+
+helper def : numTakeIn : Integer = 
+	Parameters!Parameter.allInstances()->select(e|e.name = 'TakeIn')->first().value
+;
+
+helper def : expensiveValue : Integer = 
+	Parameters!Parameter.allInstances()->select(e|e.name = 'Expensive')->first().value
+;
+
+helper def: take(n: Integer, seq: Sequence(OclAny)) : Sequence(OclAny) = 
+	if(n = 1) then
+		Sequence{}
+	else
+		let prev:Sequence(OclAny) = thisModule.take(n-1, seq) in
+			prev->including(seq->any(x|prev->excludes(x)))
+	endif;
+	
+helper def: take2(n: Integer, seq: Sequence(Integer)) : Sequence(Integer) = 
+	if(n = 1) then
+		Sequence{}
+	else
+		thisModule.take(n-1,seq)->including(seq->at(n))
+	endif;
+			
+
+helper context Integer def : expensive() : Integer =
+	thisModule.factorial(thisModule.expensiveValue)*thisModule.factorial(thisModule.expensiveValue);
+
+helper def : factorial(val: Integer) : Integer =
+	if(val = 1) then 
+		1
+	else
+		val * thisModule.factorial(val-1)
+	endif;

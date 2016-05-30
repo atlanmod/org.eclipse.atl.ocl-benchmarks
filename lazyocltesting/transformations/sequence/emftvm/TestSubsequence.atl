@@ -1,0 +1,4 @@
+-- @atlcompiler emftvm
+query TestSubsequence = (thisModule.squares(257)->collect(e|e.expensive())->subSequence(1,thisModule.numTakeIn)->takeFromSeq(thisModule.numTakeIn));
+
+uses SequenceHelpers;

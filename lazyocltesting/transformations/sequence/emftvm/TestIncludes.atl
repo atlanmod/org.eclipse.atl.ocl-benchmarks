@@ -1,0 +1,4 @@
+-- @atlcompiler emftvm
+query TestIncludes = (thisModule.squares(500)->collect(e|e+e.expensive())->includes(thisModule.numTakeIn*thisModule.numTakeIn));
+
+uses SequenceHelpers;

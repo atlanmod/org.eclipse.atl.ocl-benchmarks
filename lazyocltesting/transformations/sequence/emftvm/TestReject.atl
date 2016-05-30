@@ -1,0 +1,4 @@
+-- @atlcompiler emftvm
+query TestReject = (thisModule.squares(257)->reject(e|e = e.expensive())->takeFromSeq(thisModule.numTakeIn));
+
+uses SequenceHelpers;

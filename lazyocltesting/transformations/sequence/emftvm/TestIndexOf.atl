@@ -1,0 +1,4 @@
+-- @atlcompiler emftvm
+query TestIndexOf = (thisModule.squares(257)->collect(e|e+e.expensive())->indexOf(thisModule.numTakeIn*thisModule.numTakeIn).debug());
+
+uses SequenceHelpers;

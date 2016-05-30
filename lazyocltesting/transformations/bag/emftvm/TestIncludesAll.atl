@@ -1,0 +1,6 @@
+-- @atlcompiler emftvm
+--query TestCollect = thisModule.take(thisModule.numTakeIn,thisModule.squares(257)
+--					->collect(e|e.expensive()));
+query TestIncludesAll = (thisModule.squares(257)->includesAll(thisModule.squares(257)));
+
+uses Helpers;

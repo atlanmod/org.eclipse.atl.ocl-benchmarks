@@ -1,0 +1,4 @@
+-- @atlcompiler emftvm
+query TestInsertAt = (thisModule.squares(257)->collect(e|e.expensive())->insertAt(100,1.expensive()));
+
+uses Helpers;

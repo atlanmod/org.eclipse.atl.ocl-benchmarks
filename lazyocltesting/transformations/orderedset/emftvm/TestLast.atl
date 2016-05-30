@@ -1,0 +1,4 @@
+-- @atlcompiler emftvm
+query TestLast = (thisModule.squares(257)->collect(e|e+e.expensive())->last().debug());
+
+uses Helpers;

@@ -1,0 +1,4 @@
+-- @atlcompiler emftvm
+query TestAt = (thisModule.squares(257)->collect(e|e+e.expensive())->at(thisModule.numTakeIn).debug());
+
+uses SequenceHelpers;

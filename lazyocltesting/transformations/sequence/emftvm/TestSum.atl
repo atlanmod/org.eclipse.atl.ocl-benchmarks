@@ -1,0 +1,4 @@
+-- @atlcompiler emftvm
+query TestSum = (thisModule.squares(257)->sum() > 0).debug();
+
+uses SequenceHelpers;

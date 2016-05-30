@@ -1,0 +1,4 @@
+-- @atlcompiler emftvm
+query TestNeq = (thisModule.squares(257)<>thisModule.squares(257)).debug('NEQ');
+
+uses Helpers;

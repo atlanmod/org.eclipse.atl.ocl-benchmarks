@@ -1,0 +1,4 @@
+-- @atlcompiler emftvm
+query TestCount = (thisModule.squares(257)->count(0) > 0);
+
+uses SequenceHelpers;

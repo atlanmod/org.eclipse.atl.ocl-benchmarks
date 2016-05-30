@@ -1,0 +1,6 @@
+-- @atlcompiler emftvm
+query TestFlatten = thisModule.take(thisModule.numTakeIn*2,Bag{thisModule.squares(257)
+					->select(e|e > e.expensive()), thisModule.squares(257)
+					->select(e|e > e.expensive())}->flatten());
+
+uses Helpers;

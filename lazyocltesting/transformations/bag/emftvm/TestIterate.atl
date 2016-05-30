@@ -1,0 +1,5 @@
+-- @atlcompiler emftvm
+query TestIterate = thisModule.squares(257)->iterate(
+		e; result:Bag(Integer) = Bag{} | result->including(e+e.expensive()))->takeFromSeq(thisModule.numTakeIn);
+
+uses Helpers;

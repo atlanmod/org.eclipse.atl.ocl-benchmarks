@@ -1,0 +1,12 @@
+-- @atlcompiler emftvm
+query TestCollect = (thisModule.squares(257)->collect(e|e.expensive()+e)->takeFromBag(thisModule.numTakeIn));
+
+uses Helpers;
+
+helper context Bag(Integer) def : takeFromBag(n:Integer) : Bag(Integer) = 
+	if(n = 1) then
+		Bag{1}
+	else
+		let prev:Bag(Integer) = self.takeFromBag(n-1) in
+			prev->including(self->any(x|prev->excludes(x)))
+	endif;

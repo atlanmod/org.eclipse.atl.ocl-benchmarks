@@ -1,0 +1,4 @@
+-- @atlcompiler emftvm
+query TestIncludesAll = (thisModule.squares(257)->includesAll(thisModule.squares(257)));
+
+uses Helpers;

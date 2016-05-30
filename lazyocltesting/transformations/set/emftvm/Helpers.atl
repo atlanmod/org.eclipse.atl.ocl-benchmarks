@@ -1,0 +1,64 @@
+-- @atlcompiler emftvm
+library Helpers;
+
+helper def : numTakeIn : Integer = 
+	Parameters!Parameter.allInstances()->select(e|e.name = 'TakeIn')->first().value
+;
+
+helper def : expensiveValue : Integer = 
+	Parameters!Parameter.allInstances()->select(e|e.name = 'Expensive')->first().value
+;
+
+helper def : squaresE(end: Integer) : Set(Integer) =
+	if (end = 1)
+		then Set{1}
+		else thisModule.squares(end-1)->including(end*end +end.expensive())
+	endif;
+
+helper def : Numbers(end: Integer) : Set(Integer) =
+	if (end = 1)
+		then Set{1}
+		else thisModule.squares(end-1)->including(end)
+	endif;
+
+helper def: squaresSet(begin: Integer, end: Integer) : Set(Integer) = 
+	if(begin > end) then 
+		Set{}
+	else
+		Set{1,2}->collect(x |if(x = 1) then Set{begin * begin} else thisModule.squaresSet(begin+1,end) endif)->flatten()
+	endif;
+		
+helper def : squares(end: Integer) : Set(Integer) =
+	if (end = 1)
+		then Set{1}
+		else thisModule.squares(end-1)->including(end*end)
+	endif;
+		
+--But this does not flip the bag? Only relevant when calling as sequence... but...		
+helper def: take(n: Integer, seq: Set(Integer)) : Set(Integer) = 
+	if(n = 1) then
+		Set{1}
+	else
+		let prev:Set(Integer) = thisModule.take(n-1, seq) in
+			prev->including(seq->any(x|prev->excludes(x)))
+	endif;
+
+helper context Set(Integer) def : takeFromSeq(n:Integer) : Set(Integer) = 
+	if(n = 1) then
+		Set{1}
+	else
+		let prev:Set(Integer) = self.takeFromSeq(n-1) in
+			prev->including(self->any(x|prev->excludes(x)))
+	endif;
+
+helper context Integer def : expensive() : Integer =
+	thisModule.factorial(thisModule.expensiveValue)*thisModule.factorial(thisModule.expensiveValue);
+	
+	
+
+helper def : factorial(val: Integer) : Integer =
+	if(val = 1) then 
+		1
+	else
+		val * thisModule.factorial(val-1)
+	endif;

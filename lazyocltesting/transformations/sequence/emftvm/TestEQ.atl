@@ -1,0 +1,4 @@
+-- @atlcompiler emftvm
+query TestEQ = (thisModule.squares(257)=thisModule.squares(257)).debug('EQ');
+
+uses SequenceHelpers;

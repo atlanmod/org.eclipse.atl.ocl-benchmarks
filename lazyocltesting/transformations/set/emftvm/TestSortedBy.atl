@@ -1,0 +1,11 @@
+-- @atlcompiler emftvm
+query TestSortedBy = (thisModule.squares(257)->sortedBy(e|e).debug()->takeFromSequence(thisModule.numTakeIn));
+
+uses Helpers;
+
+helper context OrderedSet(Integer) def : takeFromSequence(n:Integer) : OrderedSet(Integer) = 
+	if(n = 1) then
+		OrderedSet{1}
+	else
+		self.takeFromSequence(n-1)->including(self->at(n))
+	endif;

@@ -1,0 +1,4 @@
+-- @atlcompiler emftvm
+query TestUnion = (thisModule.squares(150)->union(thisModule.squares(150)->collect(e|e.expensive()))->takeFromSeq(thisModule.numTakeIn));
+
+uses Helpers;

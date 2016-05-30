@@ -1,0 +1,42 @@
+query TestExcludingN = thisModule.take(thisModule.numTakeIn,thisModule.squares(257)
+					->excluding(4.expensive()));
+
+
+helper def : numTakeIn : Integer = 
+	Parameters!Parameter.allInstances()->select(e|e.name = 'TakeIn')->first().value
+;
+
+helper def : expensiveValue : Integer = 
+	Parameters!Parameter.allInstances()->select(e|e.name = 'Expensive')->first().value
+;
+
+helper def: squaresSet(begin: Integer, end: Integer) : Set(Integer) = 
+	if(begin > end) then 
+		Set{}
+	else
+		Set{1,2}->collect(x |if(x = 1) then Set{begin * begin} else thisModule.squaresSet(begin+1,end) endif)->flatten()
+	endif;
+		
+helper def : squares(end: Integer) : Set(Integer) =
+	if (end = 1)
+		then Set{1}
+		else thisModule.squares(end-1)->including(end*end)
+	endif;
+		
+helper def: take(n: Integer, seq: Set(Integer)) : Set(Integer) = 
+	if(n = 1) then
+		Set{1}
+	else
+		let prev:Set(Integer) = thisModule.take(n-1, seq) in
+			prev->including(seq->any(x|prev->excludes(x)))
+	endif;
+
+helper context Integer def : expensive() : Integer =
+	thisModule.factorial(thisModule.expensiveValue)*thisModule.factorial(thisModule.expensiveValue);
+
+helper def : factorial(val: Integer) : Integer =
+	if(val = 1) then 
+		1
+	else
+		val * thisModule.factorial(val-1)
+	endif;
