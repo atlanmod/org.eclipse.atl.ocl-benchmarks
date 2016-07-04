@@ -9,10 +9,13 @@ import lazyocltesting.plotter.XYPlotterConfiguration;
 
 public class TestBags extends TestCollection{
 	
-	private static final String savePath = "graphs/bag/small/";
+	private static final String savePathS = "graphs/bag/small/";
+	private static final String savePathB = "graphs/bag/";
+	
 	private static String emftvmTPath = "./transformations/bag/emftvm/";
 	private static String standardTPath = "./transformations/bag/standard/";
-	final XYPlotterConfiguration conf = new XYPlotterConfiguration(false, false, false, 200, 300);
+	final XYPlotterConfiguration confS = new XYPlotterConfiguration(false, false, false, 200, 300);
+	final XYPlotterConfiguration confB = new XYPlotterConfiguration(true, true, true, 800, 1000);
 	
 	ParameterManager pm = null;
 	EObject expensiveParameter = null;
@@ -34,7 +37,8 @@ public class TestBags extends TestCollection{
 //		System.out.println("Now we test with normal ATL");		
 //		normalTrace = TestQuery(new ATLQueryLauncherFactory(), "TestCollectN", standardTPath, 10);
 //		
-//		plot(conf, "Collect", EMFTVMTrace, normalTrace, true, savePath);
+//		plot(confS, "Collect", EMFTVMTrace, normalTrace, true, savePathS);
+//		plot(confB, "Collect", EMFTVMTrace, normalTrace, true, savePathB);
 //		breakLine();
 //		
 //		
@@ -43,7 +47,8 @@ public class TestBags extends TestCollection{
 //		System.out.println("Now we test with normal ATL");
 //		normalTrace = TestQuery(new ATLQueryLauncherFactory(), "TestSelectN", standardTPath, 100);
 //		
-//		plot(conf, "Select", EMFTVMTrace, normalTrace, true, savePath);
+//		plot(confS, "Select", EMFTVMTrace, normalTrace, true, savePathS);
+//		plot(confB, "Select", EMFTVMTrace, normalTrace, true, savePathB);
 //		breakLine();
 //		
 //		System.out.println("TESTING Includes");
@@ -51,7 +56,8 @@ public class TestBags extends TestCollection{
 //		System.out.println("Now we test with normal ATL");
 //		normalTrace = TestQuery(new ATLQueryLauncherFactory(), "TestIncludesN", standardTPath, 500);
 //		
-//		plot(conf, "Includes", EMFTVMTrace, normalTrace, true, savePath);
+//		plot(confS, "Includes", EMFTVMTrace, normalTrace, true, savePathS);
+//		plot(confB, "Includes", EMFTVMTrace, normalTrace, true, savePathB);
 //		breakLine();
 //		
 //		
@@ -60,7 +66,8 @@ public class TestBags extends TestCollection{
 //		System.out.println("Now we test with normal ATL");
 //		normalTrace = TestQuery(new ATLQueryLauncherFactory(), "TestExcludesN", standardTPath, 500);
 //		
-//		plot(conf, "Excludes", EMFTVMTrace, normalTrace, true, savePath);
+//		plot(confS, "Excludes", EMFTVMTrace, normalTrace, true, savePathS);
+//		plot(confB, "Excludes", EMFTVMTrace, normalTrace, true, savePathB);
 //		breakLine();
 //
 //		
@@ -70,7 +77,8 @@ public class TestBags extends TestCollection{
 //		System.out.println("Now we test with normal ATL");
 //		normalTrace = TestQuery(new ATLQueryLauncherFactory(), "TestIncludesAllN", standardTPath, 100);
 //		
-//		plot(conf, "IncludesAll", EMFTVMTrace, normalTrace, true, savePath);
+//		plot(confS, "IncludesAll", EMFTVMTrace, normalTrace, true, savePathS);
+//		plot(confB, "IncludesAll", EMFTVMTrace, normalTrace, true, savePathB);
 //		breakLine();
 //		
 //		System.out.println("TESTING ExcludesAll");
@@ -78,7 +86,8 @@ public class TestBags extends TestCollection{
 //		System.out.println("Now we test with normal ATL");
 //		normalTrace = TestQuery(new ATLQueryLauncherFactory(), "TestExcludesAllN", standardTPath, 100);
 //		
-//		plot(conf, "ExcludesAll", EMFTVMTrace, normalTrace, true, savePath);
+//		plot(confS, "ExcludesAll", EMFTVMTrace, normalTrace, true, savePathS);
+//		plot(confB, "ExcludesAll", EMFTVMTrace, normalTrace, true, savePathB);
 //		breakLine();
 //		
 //		System.out.println("TESTING Including");
@@ -86,7 +95,8 @@ public class TestBags extends TestCollection{
 //		System.out.println("Now we test with normal ATL");
 //		normalTrace = TestQuery(new ATLQueryLauncherFactory(), "TestIncludingN", standardTPath, 500);
 //		
-//		plot(conf, "Including", EMFTVMTrace, normalTrace, true, savePath);
+//		plot(confS, "Including", EMFTVMTrace, normalTrace, true, savePathS);
+//		plot(confB, "Including", EMFTVMTrace, normalTrace, true, savePathB);
 //		breakLine();	
 //		
 //		System.out.println("TESTING Excluding");
@@ -94,7 +104,8 @@ public class TestBags extends TestCollection{
 //		System.out.println("Now we test with normal ATL");
 //		normalTrace = TestQuery(new ATLQueryLauncherFactory(), "TestExcludingN", standardTPath, 500);
 //		
-//		plot(conf, "Excluding", EMFTVMTrace, normalTrace, true, savePath);
+//		plot(confS, "Excluding", EMFTVMTrace, normalTrace, true, savePathS);
+//		plot(confB, "Excluding", EMFTVMTrace, normalTrace, true, savePathB);
 //		breakLine();
 //		
 //		System.out.println("TESTING Count");
@@ -102,7 +113,8 @@ public class TestBags extends TestCollection{
 //		System.out.println("Now we test with normal ATL");
 //		normalTrace = TestQuery(new ATLQueryLauncherFactory(), "TestCountN", standardTPath, 100);
 //		
-//		plot(conf, "Count", EMFTVMTrace, normalTrace, true, savePath);
+//		plot(confS, "Count", EMFTVMTrace, normalTrace, true, savePathS);
+//		plot(confB, "Count", EMFTVMTrace, normalTrace, true, savePathB);
 //		breakLine();
 //		
 //		
@@ -111,7 +123,8 @@ public class TestBags extends TestCollection{
 //		System.out.println("Now we test with normal ATL");
 //		normalTrace = TestQuery(new ATLQueryLauncherFactory(), "TestSumN", standardTPath, 100);
 //		
-//		plot(conf, "Sum", EMFTVMTrace, normalTrace, true, savePath);
+//		plot(confS, "Sum", EMFTVMTrace, normalTrace, true, savePathS);
+//		plot(confB, "Sum", EMFTVMTrace, normalTrace, true, savePathB);
 //		breakLine();
 //		
 //		//UNION non supported for bags in ATL?
@@ -129,7 +142,8 @@ public class TestBags extends TestCollection{
 //		System.out.println("Now we test with normal ATL");
 //		normalTrace = TestQuery(new ATLQueryLauncherFactory(), "TestSizeN", standardTPath, 100);
 //		
-//		plot(conf, "Size", EMFTVMTrace, normalTrace, true, savePath);
+//		plot(confS, "Size", EMFTVMTrace, normalTrace, true, savePathS);
+//		plot(confB, "Size", EMFTVMTrace, normalTrace, true, savePathB);
 //		breakLine();
 //		
 //		System.out.println("TESTING IsEmpty");
@@ -137,7 +151,8 @@ public class TestBags extends TestCollection{
 //		System.out.println("Now we test with normal ATL");
 //		normalTrace = TestQuery(new ATLQueryLauncherFactory(), "TestIsEmptyN", standardTPath, 100);
 //		
-//		plot(conf, "IsEmpty", EMFTVMTrace, normalTrace, true, savePath);
+//		plot(confS, "IsEmpty", EMFTVMTrace, normalTrace, true, savePathS);
+//		plot(confB, "IsEmpty", EMFTVMTrace, normalTrace, true, savePathB);
 //		breakLine();
 //		
 //		
@@ -146,7 +161,8 @@ public class TestBags extends TestCollection{
 //		System.out.println("Now we test with normal ATL");
 //		normalTrace = TestQuery(new ATLQueryLauncherFactory(), "TestForAllN", standardTPath, 500);
 //		
-//		plot(conf, "forALL", EMFTVMTrace, normalTrace, true, savePath);
+//		plot(confS, "forALL", EMFTVMTrace, normalTrace, true, savePathS);
+//		plot(confB, "forAll", EMFTVMTrace, normalTrace, true, savePathB);
 //		breakLine();
 //				
 //		System.out.println("TESTING Flatten");
@@ -154,7 +170,8 @@ public class TestBags extends TestCollection{
 //		System.out.println("Now we test with normal ATL");
 //		normalTrace = TestQuery(new ATLQueryLauncherFactory(), "TestFlattenN", standardTPath, 100);
 //		
-//		plot(conf, "Flatten", EMFTVMTrace, normalTrace, true, savePath);
+//		plot(confS, "Flatten", EMFTVMTrace, normalTrace, true, savePathS);
+//		plot(confB, "Flatten", EMFTVMTrace, normalTrace, true, savePathB);
 //		breakLine();
 //		
 //		
@@ -163,7 +180,8 @@ public class TestBags extends TestCollection{
 //		System.out.println("Now we test with normal ATL");
 //		normalTrace = TestQuery(new ATLQueryLauncherFactory(), "TestRejectN", standardTPath, 100);
 //		
-//		plot(conf, "Reject", EMFTVMTrace, normalTrace, true, savePath);
+//		plot(confS, "Reject", EMFTVMTrace, normalTrace, true, savePathS);
+//		plot(confB, "Reject", EMFTVMTrace, normalTrace, true, savePathB);
 //		breakLine();
 //		
 //		System.out.println("TESTING Exists");
@@ -171,7 +189,8 @@ public class TestBags extends TestCollection{
 //		System.out.println("Now we test with normal ATL");
 //		normalTrace = TestQuery(new ATLQueryLauncherFactory(), "TestExistsN", standardTPath, 500);
 //		
-//		plot(conf, "Exists", EMFTVMTrace, normalTrace, true, savePath);
+//		plot(confS, "Exists", EMFTVMTrace, normalTrace, true, savePathS);
+//		plot(confB, "Exists", EMFTVMTrace, normalTrace, true, savePathB);
 //		breakLine();
 //		
 //		System.out.println("TESTING Any");
@@ -179,7 +198,8 @@ public class TestBags extends TestCollection{
 //		System.out.println("Now we test with normal ATL");
 //		normalTrace = TestQuery(new ATLQueryLauncherFactory(), "TestAnyN", standardTPath, 500);
 //		
-//		plot(conf, "Any", EMFTVMTrace, normalTrace, true, savePath);
+//		plot(confS, "Any", EMFTVMTrace, normalTrace, true, savePathS);
+//		plot(confB, "Any", EMFTVMTrace, normalTrace, true, savePathB);
 //		breakLine();
 //		
 //		System.out.println("TESTING One");
@@ -187,7 +207,8 @@ public class TestBags extends TestCollection{
 //		System.out.println("Now we test with normal ATL");
 //		normalTrace = TestQuery(new ATLQueryLauncherFactory(), "TestOneN", standardTPath, 500);
 //		
-//		plot(conf, "One", EMFTVMTrace, normalTrace, true, savePath);
+//		plot(confS, "One", EMFTVMTrace, normalTrace, true, savePathS);
+//		plot(confB, "One", EMFTVMTrace, normalTrace, true, savePathB);
 //		breakLine();
 //		
 //		System.out.println("TESTING isUnique");
@@ -195,7 +216,8 @@ public class TestBags extends TestCollection{
 //		System.out.println("Now we test with normal ATL");
 //		normalTrace = TestQuery(new ATLQueryLauncherFactory(), "TestIsUniqueN", standardTPath, 100);
 //		
-//		plot(conf, "isUnique", EMFTVMTrace, normalTrace, true, savePath);
+//		plot(confS, "isUnique", EMFTVMTrace, normalTrace, true, savePathS);
+//		plot(confB, "isUnique", EMFTVMTrace, normalTrace, true, savePathB);
 //		breakLine();
 //		
 //		System.out.println("TESTING sortedBy");
@@ -203,7 +225,8 @@ public class TestBags extends TestCollection{
 //		System.out.println("Now we test with normal ATL");
 //		normalTrace = TestQuery(new ATLQueryLauncherFactory(), "TestSortedByN", standardTPath, 10);
 //		
-//		plot(conf, "sortedBy", EMFTVMTrace, normalTrace, true, savePath);
+//		plot(confS, "sortedBy", EMFTVMTrace, normalTrace, true, savePathS);
+//		plot(confB, "sortedBy", EMFTVMTrace, normalTrace, true, savePathB);
 //		breakLine();
 //		
 //		System.out.println("TESTING Iterate");
@@ -211,7 +234,8 @@ public class TestBags extends TestCollection{
 //		System.out.println("Now we test with normal ATL");
 //		normalTrace = TestQuery(new ATLQueryLauncherFactory(), "TestIterateN", standardTPath, 700);
 //		
-//		plot(conf, "Iterate", EMFTVMTrace, normalTrace, true, savePath);
+//		plot(confS, "Iterate", EMFTVMTrace, normalTrace, true, savePathS);
+//		plot(confB, "Iterate", EMFTVMTrace, normalTrace, true, savePathB);
 //		breakLine();
 //		
 //		System.out.println("TESTING EQ");
@@ -219,7 +243,8 @@ public class TestBags extends TestCollection{
 //		System.out.println("Now we test with normal ATL");
 //		normalTrace = TestQuery(new ATLQueryLauncherFactory(), "TestEQN", standardTPath, 100);
 //		
-//		plot(conf, "EQ", EMFTVMTrace, normalTrace, true, savePath);
+//		plot(confS, "EQ", EMFTVMTrace, normalTrace, true, savePathS);
+//		plot(confB, "EQ", EMFTVMTrace, normalTrace, true, savePathB);
 //		breakLine();
 //		
 //		System.out.println("TESTING NotEQ");
@@ -227,7 +252,8 @@ public class TestBags extends TestCollection{
 //		System.out.println("Now we test with normal ATL");
 //		normalTrace = TestQuery(new ATLQueryLauncherFactory(), "TestNeqN", standardTPath, 100);
 //		
-//		plot(conf, "NEQ", EMFTVMTrace, normalTrace, true, savePath);
+//		plot(confS, "NEQ", EMFTVMTrace, normalTrace, true, savePathS);
+//		plot(confB, "NEQ", EMFTVMTrace, normalTrace, true, savePathB);
 //		breakLine();
 //			
 
