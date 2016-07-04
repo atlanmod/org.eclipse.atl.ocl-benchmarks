@@ -5,19 +5,6 @@ query TestUnionN = thisModule.take(thisModule.numTakeIn,(thisModule.squares(500)
 					->union(thisModule.Numbers(257)->select(e | e > e.expensive())));
 
 
-helper def : squaresE(end: Integer) : Set(Integer) =
-	if (end = 1)
-		then Set{1}
-		else thisModule.squares(end-1)->including(end*end+end.expensive())
-	endif;
-
-helper def : Numbers(end: Integer) : Set(Integer) =
-	if (end = 1)
-		then Set{1}
-		else thisModule.squares(end-1)->including(end)
-	endif;
-
-
 helper def : numTakeIn : Integer = 
 	Parameters!Parameter.allInstances()->select(e|e.name = 'TakeIn')->first().value
 ;
@@ -26,18 +13,15 @@ helper def : expensiveValue : Integer =
 	Parameters!Parameter.allInstances()->select(e|e.name = 'Expensive')->first().value
 ;
 
-helper def: squaresSet(begin: Integer, end: Integer) : Set(Integer) = 
-	if(begin > end) then 
-		Set{}
-	else
-		Set{1,2}->collect(x |if(x = 1) then Set{begin * begin} else thisModule.squaresSet(begin+1,end) endif)->flatten()
-	endif;
-		
 helper def : squares(end: Integer) : Set(Integer) =
-	if (end = 1)
-		then Set{1}
-		else thisModule.squares(end-1)->including(end*end)
-	endif;
+	Parameters!Parameter.allInstances()
+	->select(e|e.name = 'Squares')
+	->first().list->subSequence(1,end)->asSet();
+		
+helper def : Numbers(end: Integer) : Set(Integer) =
+	Parameters!Parameter.allInstances()
+	->select(e|e.name = 'Naturals')
+	->first().list->subSequence(1,end)->asSet();
 		
 helper def: take(n: Integer, seq: Set(Integer)) : Set(Integer) = 
 	if(n = 1) then

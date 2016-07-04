@@ -68,6 +68,8 @@ public abstract class TestCollection {
 				tt2.getXtrace(), 
 				tt2.getYtrace());
 		
+		tn.getXyGraph().getPrimaryXAxis().setTitle("elements");
+		tn.getXyGraph().getPrimaryYAxis().setTitle("time");
 		tn.showPlot(trace, trace2, save);
 	}
 	

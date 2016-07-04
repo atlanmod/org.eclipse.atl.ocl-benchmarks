@@ -1,5 +1,5 @@
 -- @atlcompiler emftvm
-query TestAllInstances = thisModule.take(thisModule.numTakeIn,Parameters!Number.allInstances());
+query TestAllInstances = thisModule.take(thisModule.numTakeIn,Parameters!Number.allInstances()->select(e| e.value > e.value.expensive()));
 
 helper context Set(Parameter!Number) def : takeFromSeq(n:Integer) : Set(Integer) = 
 	if(n = 1) then
@@ -26,7 +26,7 @@ helper def: take(n: Integer, seq: Sequence(OclAny)) : Sequence(OclAny) =
 	endif;
 	
 helper context Integer def : expensive() : Integer =
-	thisModule.factorial(thisModule.expensiveValue)*thisModule.factorial(thisModule.expensiveValue);
+	thisModule.factorial(100)*thisModule.factorial(100);
 
 helper def : factorial(val: Integer) : Integer =
 	if(val = 1) then 

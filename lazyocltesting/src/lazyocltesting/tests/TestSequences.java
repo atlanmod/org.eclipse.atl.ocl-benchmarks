@@ -9,10 +9,13 @@ import lazyocltesting.plotter.XYPlotterConfiguration;
 
 public class TestSequences extends TestCollection{
 	
-	private static String savePath = "graphs/sequence/small/";
+	private static String savePathS = "graphs/sequence/small/";
+	private static String savePathB = "graphs/sequence/";
+	
 	private static String emftvmTPath = "./transformations/sequence/emftvm/";
 	private static String standardTPath = "./transformations/sequence/standard/";
-	final XYPlotterConfiguration conf = new XYPlotterConfiguration(false, false, false, 200, 300);
+	final XYPlotterConfiguration confS = new XYPlotterConfiguration(false, false, false, 200, 300);
+	final XYPlotterConfiguration confB = new XYPlotterConfiguration(true, true, true, 800, 1000);
 	
 	ParameterManager pm = null;
 	EObject expensiveParameter = null;
@@ -28,29 +31,32 @@ public class TestSequences extends TestCollection{
 		TestTrace normalTrace;
 		
 //		System.out.println("TESTING Collect");
-//		EMFTVMTrace = TestQuery(new EMFTVMQueryLauncherFactory(), "TestCollect", emftvmTPath, 100);
+//		EMFTVMTrace = TestQuery(new EMFTVMQueryLauncherFactory(), "TestCollect", emftvmTPath, 50);
 //		System.out.println("Now we test with normal ATL");		
-//		normalTrace = TestQuery(new ATLQueryLauncherFactory(), "TestCollectN", standardTPath, 100);
+//		normalTrace = TestQuery(new ATLQueryLauncherFactory(), "TestCollectN", standardTPath, 50);
 //		
-//		plot(conf, "Collect", EMFTVMTrace, normalTrace, true, savePath);
+//		plot(confS, "Collect", EMFTVMTrace, normalTrace, true, savePathS);
+//		plot(confB, "Collect", EMFTVMTrace, normalTrace, true, savePathB);
 //		breakLine();
 //		
 //		
-//		System.out.println("TESTING Select");
-//		EMFTVMTrace = TestQuery(new EMFTVMQueryLauncherFactory(), "TestSelect", emftvmTPath, 50);
-//		System.out.println("Now we test with normal ATL");
-//		normalTrace = TestQuery(new ATLQueryLauncherFactory(), "TestSelectN", standardTPath, 50);
-//		
-//		plot(conf, "Select", EMFTVMTrace, normalTrace, true, savePath);
-//		breakLine();
-//		
-//		System.out.println("TESTING Includes");
-//		EMFTVMTrace = TestQuery(new EMFTVMQueryLauncherFactory(), "TestIncludes", emftvmTPath, 100);
-//		System.out.println("Now we test with normal ATL");
-//		normalTrace = TestQuery(new ATLQueryLauncherFactory(), "TestIncludesN", standardTPath, 100);
-//		
-//		plot(conf, "Includes", EMFTVMTrace, normalTrace, true, savePath);
-//		breakLine();
+		System.out.println("TESTING Select");
+		EMFTVMTrace = TestQuery(new EMFTVMQueryLauncherFactory(), "TestSelect", emftvmTPath, 50);
+		System.out.println("Now we test with normal ATL");
+		normalTrace = TestQuery(new ATLQueryLauncherFactory(), "TestSelectN", standardTPath, 50);
+		
+		plot(confS, "Select", EMFTVMTrace, normalTrace, true, savePathS);
+		plot(confB, "Select", EMFTVMTrace, normalTrace, true, savePathB);
+		breakLine();
+		
+		System.out.println("TESTING Includes");
+		EMFTVMTrace = TestQuery(new EMFTVMQueryLauncherFactory(), "TestIncludes", emftvmTPath, 100);
+		System.out.println("Now we test with normal ATL");
+		normalTrace = TestQuery(new ATLQueryLauncherFactory(), "TestIncludesN", standardTPath, 100);
+		
+		plot(confS, "Includes", EMFTVMTrace, normalTrace, true, savePathS);
+		plot(confB, "Includes", EMFTVMTrace, normalTrace, true, savePathB);
+		breakLine();
 //		
 //		
 //		System.out.println("TESTING Excludes");
@@ -118,13 +124,13 @@ public class TestSequences extends TestCollection{
 //		plot(conf, "Sum", EMFTVMTrace, normalTrace, true, savePath);
 //		breakLine();
 //		
-		System.out.println("TESTING Union");
-		EMFTVMTrace = TestQuery(new EMFTVMQueryLauncherFactory(), "TestUnion", emftvmTPath, 500);
-		System.out.println("Now we test with normal ATL");
-		normalTrace = TestQuery(new ATLQueryLauncherFactory(), "TestUnionN", standardTPath, 500);
-		
-		plot(conf, "Union", EMFTVMTrace, normalTrace, true, savePath);
-		breakLine();
+//		System.out.println("TESTING Union");
+//		EMFTVMTrace = TestQuery(new EMFTVMQueryLauncherFactory(), "TestUnion", emftvmTPath, 500);
+//		System.out.println("Now we test with normal ATL");
+//		normalTrace = TestQuery(new ATLQueryLauncherFactory(), "TestUnionN", standardTPath, 500);
+//		
+//		plot(conf, "Union", EMFTVMTrace, normalTrace, true, savePath);
+//		breakLine();
 //		
 //		System.out.println("TESTING Size");
 //		EMFTVMTrace = TestQuery(new EMFTVMQueryLauncherFactory(), "TestSize", emftvmTPath, 100);

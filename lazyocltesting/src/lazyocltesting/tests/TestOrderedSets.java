@@ -270,37 +270,37 @@ public class TestOrderedSets extends TestCollection{
 //		plot(conf, "isUnique", EMFTVMTrace, normalTrace, true, savePath);
 //		breakLine();
 //		
-//		System.out.println("TESTING sortedBy");
-//		EMFTVMTrace = TestQuery(new EMFTVMQueryLauncherFactory(), "TestSortedBy", emftvmTPath, 100);
-//		System.out.println("Now we test with normal ATL");
-//		normalTrace = TestQuery(new ATLQueryLauncherFactory(), "TestSortedByN", standardTPath, 100);
-//		
-//		plot(conf, "sortedBy", EMFTVMTrace, normalTrace, true, savePath);
-//		breakLine();
-//		
-//		System.out.println("TESTING Iterate");
-//		EMFTVMTrace = TestQuery(new EMFTVMQueryLauncherFactory(), "TestIterate", emftvmTPath, 700);
-//		System.out.println("Now we test with normal ATL");
-//		normalTrace = TestQuery(new ATLQueryLauncherFactory(), "TestIterateN", standardTPath, 700);
-//		
-//		plot(conf, "Iterate", EMFTVMTrace, normalTrace, true, savePath);
-//		breakLine();
-//		
-//		System.out.println("TESTING EQ");
-//		EMFTVMTrace = TestQuery(new EMFTVMQueryLauncherFactory(), "TestEQ", emftvmTPath, 100);
-//		System.out.println("Now we test with normal ATL");
-//		normalTrace = TestQuery(new ATLQueryLauncherFactory(), "TestEQN", standardTPath, 100);
-//		
-//		plot(conf, "EQ", EMFTVMTrace, normalTrace, true, savePath);
-//		breakLine();
-//		
-//		System.out.println("TESTING NEQ");
-//		EMFTVMTrace = TestQuery(new EMFTVMQueryLauncherFactory(), "TestNeq", emftvmTPath, 100);
-//		System.out.println("Now we test with normal ATL");
-//		normalTrace = TestQuery(new ATLQueryLauncherFactory(), "TestNeqN", standardTPath, 100);
-//		
-//		plot(conf, "NEQ", EMFTVMTrace, normalTrace, true, savePath);
-//		
+		System.out.println("TESTING sortedBy");
+		EMFTVMTrace = TestQuery(new EMFTVMQueryLauncherFactory(), "TestSortedBy", emftvmTPath, 100);
+		System.out.println("Now we test with normal ATL");
+		normalTrace = TestQuery(new ATLQueryLauncherFactory(), "TestSortedByN", standardTPath, 100);
+		
+		plot(conf, "sortedBy", EMFTVMTrace, normalTrace, true, savePath);
+		breakLine();
+		
+		System.out.println("TESTING Iterate");
+		EMFTVMTrace = TestQuery(new EMFTVMQueryLauncherFactory(), "TestIterate", emftvmTPath, 700);
+		System.out.println("Now we test with normal ATL");
+		normalTrace = TestQuery(new ATLQueryLauncherFactory(), "TestIterateN", standardTPath, 700);
+		
+		plot(conf, "Iterate", EMFTVMTrace, normalTrace, true, savePath);
+		breakLine();
+		
+		System.out.println("TESTING EQ");
+		EMFTVMTrace = TestQuery(new EMFTVMQueryLauncherFactory(), "TestEQ", emftvmTPath, 100);
+		System.out.println("Now we test with normal ATL");
+		normalTrace = TestQuery(new ATLQueryLauncherFactory(), "TestEQN", standardTPath, 100);
+		
+		plot(conf, "EQ", EMFTVMTrace, normalTrace, true, savePath);
+		breakLine();
+		
+		System.out.println("TESTING NEQ");
+		EMFTVMTrace = TestQuery(new EMFTVMQueryLauncherFactory(), "TestNeq", emftvmTPath, 100);
+		System.out.println("Now we test with normal ATL");
+		normalTrace = TestQuery(new ATLQueryLauncherFactory(), "TestNeqN", standardTPath, 100);
+		
+		plot(conf, "NEQ", EMFTVMTrace, normalTrace, true, savePath);
+		
 		
 	}
 

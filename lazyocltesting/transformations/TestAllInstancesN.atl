@@ -1,5 +1,5 @@
 
-query TestAllInstancesN = thisModule.take(thisModule.numTakeIn,Parameters!Number.allInstances());
+query TestAllInstancesN = thisModule.take(thisModule.numTakeIn,Parameters!Number.allInstances()->select(e| e.value > e.value.expensive()));
 
 
 
@@ -28,7 +28,7 @@ helper def: take2(n: Integer, seq: Sequence(Integer)) : Sequence(Integer) =
 			
 
 helper context Integer def : expensive() : Integer =
-	thisModule.factorial(thisModule.expensiveValue)*thisModule.factorial(thisModule.expensiveValue);
+	thisModule.factorial(100)*thisModule.factorial(100);
 
 helper def : factorial(val: Integer) : Integer =
 	if(val = 1) then 

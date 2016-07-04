@@ -9,18 +9,15 @@ helper def : expensiveValue : Integer =
 	Parameters!Parameter.allInstances()->select(e|e.name = 'Expensive')->first().value
 ;
 
-helper def: squaresBag(begin: Integer, end: Integer) : Bag(Integer) = 
-	if(begin > end) then 
-		Bag{}
-	else
-		Bag{1,2}->collect(x |if(x = 1) then Bag{begin * begin} else thisModule.squaresBag(begin+1,end) endif)->flatten()
-	endif;
+helper def : squares(end: Integer) : Set(Integer) =
+	Parameters!Parameter.allInstances()
+	->select(e|e.name = 'Squares')
+	->first().list->subSequence(1,end)->asSet();
 		
-helper def : squares(end: Integer) : Bag(Integer) =
-	if (end = 1)
-		then Bag{1}
-		else thisModule.squares(end-1)->including(end*end)
-	endif;
+helper def : Numbers(end: Integer) : Set(Integer) =
+	Parameters!Parameter.allInstances()
+	->select(e|e.name = 'Naturals')
+	->first().list->subSequence(1,end)->asSet();
 		
 --But this does not flip the bag? Only relevant when calling as sequence... but...		
 helper def: take(n: Integer, seq: Bag(Integer)) : Bag(Integer) = 

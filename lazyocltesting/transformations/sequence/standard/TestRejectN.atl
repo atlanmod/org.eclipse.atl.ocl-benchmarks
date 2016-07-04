@@ -20,17 +20,23 @@ helper def: squaresBag(begin: Integer, end: Integer) : Bag(Integer) =
 		Bag{1,2}->collect(x |if(x = 1) then Bag{begin * begin} else thisModule.squaresBag(begin+1,end) endif)->flatten()
 	endif;
 		
-helper def : squares(end: Integer) : Bag(Integer) =
-	if (end = 1)
-		then Bag{1}
-		else thisModule.squares(end-1)->including(end*end)
-	endif;
+helper def : squares(end: Integer) : Sequence(Integer) =
+	Parameters!Parameter.allInstances()
+	->select(e|e.name = 'Squares')
+	->first().list->subSequence(1,end)
+;
 		
-helper def: take(n: Integer, seq: Bag(Integer)) : Bag(Integer) = 
+helper def : Numbers(end: Integer) : Sequence(Integer) =
+	Parameters!Parameter.allInstances()
+	->select(e|e.name = 'Naturals')
+	->first().list->subSequence(1,end)
+;
+		
+helper def: take(n: Integer, seq: Sequence(Integer)) : Sequence(Integer) = 
 	if(n = 1) then
-		Bag{1}
+		Sequence{0}
 	else
-		let prev:Bag(Integer) = thisModule.take(n-1, seq) in
+		let prev:Sequence(Integer) = thisModule.take(n-1, seq) in
 			prev->including(seq->any(x|prev->excludes(x)))
 	endif;
 

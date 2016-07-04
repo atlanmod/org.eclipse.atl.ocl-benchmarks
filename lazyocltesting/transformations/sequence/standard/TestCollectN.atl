@@ -9,27 +9,25 @@ helper def : numTakeIn : Integer =
 helper def : expensiveValue : Integer = 
 	Parameters!Parameter.allInstances()->select(e|e.name = 'Expensive')->first().value
 ;
-
-
-helper def: squaresSequence(begin: Integer, end: Integer) : Sequence(Integer) = 
-	if(begin > end) then 
-		Sequence{}
-	else
-		Sequence{1,2}->collect(x |if(x = 1) then Sequence{begin * begin} else thisModule.squaresSequence(begin+1,end) endif)->flatten()
-	endif;
 		
 helper def : squares(end: Integer) : Sequence(Integer) =
-	if (end = 1)
-		then Sequence{1}
-		else thisModule.squares(end-1)->including(end*end)
-	endif;
+	Parameters!Parameter.allInstances()
+	->select(e|e.name = 'Squares')
+	->first().list->subSequence(1,end)
+;
 		
---But this does not flip the bag? Only relevant when calling as sequence... but...		
+helper def : Numbers(end: Integer) : Sequence(Integer) =
+	Parameters!Parameter.allInstances()
+	->select(e|e.name = 'Naturals')
+	->first().list->subSequence(1,end)
+;
+		
 helper def: take(n: Integer, seq: Sequence(Integer)) : Sequence(Integer) = 
 	if(n = 1) then
-		Sequence{1}
+		Sequence{0}
 	else
-		thisModule.take(n-1,seq)->including(seq->at(n))
+		let prev:Sequence(Integer) = thisModule.take(n-1, seq) in
+			prev->including(seq->any(x|prev->excludes(x)))
 	endif;
 
 helper context Integer def : expensive() : Integer =

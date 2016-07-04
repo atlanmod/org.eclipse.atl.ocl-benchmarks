@@ -1,5 +1,5 @@
 -- @atlcompiler emftvm
-query TestAppend = thisModule.take(thisModule.numTakeIn,thisModule.squaresE(257)
+query TestAppend = thisModule.take(thisModule.numTakeIn,thisModule.squares(600)->select(e | e > e.expensive())
 					->append(0.expensive()));
 
 uses Helpers;

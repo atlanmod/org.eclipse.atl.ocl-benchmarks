@@ -231,25 +231,25 @@ public class TestSets extends TestCollection {
 //		breakLine();
 //		
 //		System.out.println("TESTING Intersection");
-//		EMFTVMTrace = TestQuery(new EMFTVMQueryLauncherFactory(), "TestIntersection", emftvmTPath, 100);
+//		EMFTVMTrace = TestQuery(new EMFTVMQueryLauncherFactory(), "TestIntersection", emftvmTPath, 400);
 //		System.out.println("Now we test with normal ATL");
-//		normalTrace = TestQuery(new ATLQueryLauncherFactory(), "TestIntersectionN", standardTPath, 100);
+//		normalTrace = TestQuery(new ATLQueryLauncherFactory(), "TestIntersectionN", standardTPath, 400);
 //		
 //		plot(conf, "Intersection", EMFTVMTrace, normalTrace, true, savePath);
 //		breakLine();
 //		
 //		System.out.println("TESTING Minus");
-//		EMFTVMTrace = TestQuery(new EMFTVMQueryLauncherFactory(), "TestMinus", emftvmTPath, 100);
+//		EMFTVMTrace = TestQuery(new EMFTVMQueryLauncherFactory(), "TestMinus", emftvmTPath, 10);
 //		System.out.println("Now we test with normal ATL");
-//		normalTrace = TestQuery(new ATLQueryLauncherFactory(), "TestMinusN", standardTPath, 100);
+//		normalTrace = TestQuery(new ATLQueryLauncherFactory(), "TestMinusN", standardTPath, 10);
 //		
 //		plot(conf, "Minus", EMFTVMTrace, normalTrace, true, savePath);
 //		breakLine();
 //		
 //		System.out.println("TESTING SymmetricDifference");
-//		EMFTVMTrace = TestQuery(new EMFTVMQueryLauncherFactory(), "TestSymmetricDif", emftvmTPath, 400);
+//		EMFTVMTrace = TestQuery(new EMFTVMQueryLauncherFactory(), "TestSymmetricDif", emftvmTPath, 600);
 //		System.out.println("Now we test with normal ATL");
-//		normalTrace = TestQuery(new ATLQueryLauncherFactory(), "TestSymmetricDifN", standardTPath, 400);
+//		normalTrace = TestQuery(new ATLQueryLauncherFactory(), "TestSymmetricDifN", standardTPath, 600);
 //		
 //		plot(conf, "SymmetricDif", EMFTVMTrace, normalTrace, true, savePath);
 //		breakLine();

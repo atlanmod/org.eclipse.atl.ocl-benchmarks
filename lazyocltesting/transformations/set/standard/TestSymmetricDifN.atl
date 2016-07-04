@@ -1,5 +1,5 @@
-query TestSymmetricDifN = thisModule.take(thisModule.numTakeIn,(thisModule.squaresE(700))
-					->symetricDifference(thisModule.Numbers(257)));
+query TestSymmetricDifN = thisModule.take(thisModule.numTakeIn,thisModule.squares(700)->select(e | e > e.expensive())->asSet()
+					->symetricDifference(thisModule.Numbers(300)));
 
 
 helper def : numTakeIn : Integer = 
@@ -16,29 +16,19 @@ helper def : squaresE(end: Integer) : Set(Integer) =
 		else thisModule.squares(end-1)->including(end*end +end.expensive())
 	endif;
 
-helper def : Numbers(end: Integer) : Set(Integer) =
-	if (end = 1)
-		then Set{1}
-		else thisModule.squares(end-1)->including(end)
-	endif;
-
-
-helper def: squaresSet(begin: Integer, end: Integer) : Set(Integer) = 
-	if(begin > end) then 
-		Set{}
-	else
-		Set{1,2}->collect(x |if(x = 1) then Set{begin * begin} else thisModule.squaresSet(begin+1,end) endif)->flatten()
-	endif;
-		
 helper def : squares(end: Integer) : Set(Integer) =
-	if (end = 1)
-		then Set{1}
-		else thisModule.squares(end-1)->including(end*end)
-	endif;
+	Parameters!Parameter.allInstances()
+	->select(e|e.name = 'Squares')
+	->first().list->subSequence(1,end)->asSet();
+		
+helper def : Numbers(end: Integer) : Set(Integer) =
+	Parameters!Parameter.allInstances()
+	->select(e|e.name = 'Naturals')
+	->first().list->subSequence(1,end)->asSet();
 		
 helper def: take(n: Integer, seq: Set(Integer)) : Set(Integer) = 
 	if(n = 1) then
-		Set{1}
+		Set{0}
 	else
 		let prev:Set(Integer) = thisModule.take(n-1, seq) in
 			prev->including(seq->any(x|prev->excludes(x)))
